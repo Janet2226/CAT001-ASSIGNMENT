@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School grading system</title>
+</head>
+<body>
+    <header style="width: 100vw; height: 20vh; background-color: bisque;">
+        <h2>TTNP GRADING SYSTEM</h2>
+        <br>
+        <div class="notify-element">
+
+        </div>
+    </header>
+    <div class="main-grading-div">
+        <h2>Hello, Please input student marks to calculate grades</h2>
+        <br>
+        <hr>
+        <form class="main-form">
+            <h3>Add Students</h3><br>
+            <label for="admission-input">Admission Number: </label><br>
+            <input type="text" name="admission" id="admission-input" required> <br> <br>
+
+            <label for="name-input">Student Name: </label> <br>
+            <input type="text" name="name" id="name-input" required> <br> <br>
+
+            <label for="maths-input">Maths: <input type="number" name="maths" id="maths-input"></label><br>
+            <label for="biology-input">Biology: <input type="number" name="biology" id="biology-input"></label><br>
+            <label for="chemistry-input">Chemistry: <input type="number" name="chemistry" id="chemistry-input"></label><br>
+            <label for="physics-input">Physics: <input type="number" name="physics" id="physics-input"></label><br> <br>
+            <hr>
+            <button type="submit">Register</button>
+        </form>
+
+        <div class="progress-div">
+
+        </div>
+    </div>
+
+    <script>
+        const progressDiv = document.querySelector(".progress-div");
+
+        const form = document.querySelector(".main-form");
+        form.addEventListener("submit",(e)=>{
+            e.preventDefault();
+
+            const data = Object.fromEntries(new FormData(form));
+
+            const {admission, name, maths, biology, chemistry, physics} = data;
+
+            const total = parseInt(maths) + parseInt(chemistry) + parseInt(biology) + parseInt(physics);
+
+            const average = total / 4;
+
+            let grade = "";
+
+            if(79 < average && average < 101){
+                grade = "A";
+            }else if(69 < average && average < 80){
+                grade = "B";
+            }else if(59 < average && average < 70){
+                grade = "C";
+            }else if(39 < average && average  < 60){
+                grade = "D";
+            }else if(0 < average && average  < 40){
+                grade = "E";
+            }else{
+                grade = "!";
+            }
+
+            const newDiv = document.createElement("div");
+            newDiv.classList.add("studentData-div");
+            newDiv.innerHTML = `
+                                <h3>${admission}</h3>
+                                <h2>${name}</h2>
+                                <p>Maths: <b>${maths}</b></p>
+                                <p>Biology: <b>${biology}</b></p>
+                                <p>Chemistry: <b>${chemistry}</b></p>
+                                <p>Physics: <b>${physics}</b></p>
+
+                                <hr>
+                                <h4>Total:  <b>${total}</b></h4>
+                                <h4>Average: <b>${average}</b></h4>
+                                <h3>Grade: <b>${grade}</b></h3>
+                                `;
+
+            progressDiv.appendChild(newDiv);
+            form.reset();
+        });
+    </script>
+</body>
+</html>

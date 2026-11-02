@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janet</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>THIS IS THE HEADER</h1> <br>
+
+        <div class="notify-content" style="background-color: brown;border-radius: 20px;">
+
+        </div>
+    </header>
+    <main>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#">Services</a></li>
+            </ul>
+        </nav>
+        <section class="main-section">
+            <div class="note-div" style="text-shadow: 2px 2px 2px black;">
+                <h3>welcome to Licious Travel Agency</h3>
+                <p>Give yourself a holiday outside with your people.</p>
+            </div>
+
+            <img src="./2-days-masai-mara-safari.jpg" alt="a picture of the maasai mara">
+        </section>
+    </main>
+    <script>
+        const link = document.querySelector(".main-nav");
+        const notify = document.querySelector(".notify-content");
+        notify.innerHTML = "";
+
+        link.addEventListener("click",(e)=>{
+
+            let text = e.target.closest("a");
+
+            if(!text){
+                return
+            };
+
+            text = text.textContent;
+
+            notify.style.padding = "20px";
+            notify.innerHTML = `<h3>Could not get the link to ${text}</h3>`;
+
+            setTimeout(()=>{
+
+                notify.innerHTML = "";
+                notify.style.padding = "0";
+
+            }, 3000);
+            
+        });
+    </script>
+</body>
+</html>

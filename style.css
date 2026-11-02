@@ -1,0 +1,78 @@
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: beige;
+}
+header{
+    height: 20vh;
+    width: 100vw;
+    background-color: rgb(134, 126, 81);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 15px;
+    align-items: center;
+    background-color: aliceblue;
+    width: 80vw;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    box-shadow: 5px 5px 5px gray;
+}
+
+.main-nav ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.main-nav ul li{
+    margin-left: 50px;
+    list-style: none;
+}
+.main-nav ul li a{
+    text-decoration: none;
+    font-weight: 700;
+    font-size: larger;
+    color: black;
+    transition: color 0.2s ease-in-out;
+
+}
+
+.main-nav ul li a:hover{
+    color: blueviolet;
+}
+
+.main-section{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.main-section img{
+    border-radius: 50px;
+}
+
+.main-section .note-div{
+    position: fixed;
+    margin-left: 400px;
+    margin-top: 200px;
+    color: white; 
+    transition: color 0.3s ease-in-out;
+    transition: border 0.3s ease-in-out;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.note-div:hover{
+    transform: scale(1.1);
+    transition: 0.5s ease-in-out;
+    color: rgb(102, 72, 7); 
+    border:  1px solid gray;
+}
